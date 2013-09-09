@@ -53,7 +53,7 @@
     
     var _defaults = { 
         zoom: 8,
-        draggable: false,
+        draggable: true,
         container: null
       };
     
@@ -333,6 +333,7 @@
       scope: {
         center: "=center", // required
         markers: "=markers", // optional
+        draggable: "=draggable", // optional
         latitude: "=latitude", // required
         longitude: "=longitude", // required
         zoom: "=zoom", // required
@@ -370,7 +371,7 @@
         var _m = new MapModel(angular.extend(opts, {
           container: element[0],            
           center: new google.maps.LatLng(scope.center.latitude, scope.center.longitude),              
-          draggable: attrs.draggable == "true",
+          draggable: (scope.draggable === true),
           zoom: scope.zoom
         }));       
       
